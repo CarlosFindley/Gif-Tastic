@@ -1,0 +1,48 @@
+body {
+    background-image: url(../images/gifTastic.gif);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-family: "roboto", "Helvetica Neue", helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+.search, .buttons {
+    min-width: 70%;
+    padding: 1em;
+}
+
+.gif {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    padding: .6em .9em;
+    padding-bottom: .3em;
+    margin: .2em;
+    background: none;
+    border: none;
+    border-bottom: rgb(68, 179, 255) .3em solid;
+}
+
+.gif:hover {
+    background: rgb(68, 179, 255, .7);
+}
+
+.submitButton, .searchBar {
+    padding: .8em;
+}
+
+.submitButton {
+    background-color: rgb(109, 99, 255);
+    color: rgb(255,255,255);
+    border: none;
+}
+
+.searchBar {
+    border: none;
+}
+
+
+
