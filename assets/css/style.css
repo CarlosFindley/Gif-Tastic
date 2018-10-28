@@ -10,12 +10,19 @@ body {
     margin: 0 auto;
 }
 
-.search, .buttons {
+.buttonContainer, .gifContainer {
     min-width: 70%;
+}
+    
+.gifContainer, .gifCol {
+    padding: 0;
+}
+
+.search, .buttons {
     padding: 1em;
 }
 
-.gif {
+.gifButton {
     color: rgb(255, 255, 255);
     font-weight: 600;
     padding: .6em .9em;
@@ -26,8 +33,20 @@ body {
     border-bottom: rgb(68, 179, 255) .3em solid;
 }
 
-.gif:hover {
+.gifs {
+	display: inline-grid;
+    margin: 2em;
+}
+
+.gifButton:hover {
     background: rgb(68, 179, 255, .7);
+}
+
+.gifText {
+    padding-left: .5em;
+    padding-top: .1em;
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .submitButton, .searchBar {
@@ -42,6 +61,10 @@ body {
 
 .searchBar {
     border: none;
+}
+
+img {
+    margin: 0 auto;
 }
 
 

@@ -27,7 +27,7 @@ function renderButtons() {
       // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
       var a = $("<button>");
       // Adding a class
-      a.addClass("gif");
+      a.addClass("gifButton");
       // Adding a data-attribute with a value of the gif topics at index i
       a.attr("data-gif", topics[i]);
       // Providing the button's text with a value of the gif topics at index i
@@ -44,9 +44,9 @@ function renderButtons() {
     event.preventDefault();
 
     // This line will grab the text from the input box
-    var gif = $(".searchBar").val().trim();
+    var gifInputBox = $(".searchBar").val().trim();
     // The gif from the textbox is then added to our array
-    topics.push(gif);
+    topics.push(gifInputBox);
 
     // calling renderButtons which handles the processing of our gif topics array
     renderButtons();
@@ -58,7 +58,9 @@ function renderButtons() {
 
   // -------------------------------------------------------------------------------------
   // Adding click event listen listener to all buttons
-  $("button").on("click", function() {
+  $(document).on("click",".gifButton", function() {
+
+    console.log("CLICK");
     // Grabbing and storing the data-gif property value from the button
     var newGif = $(this).attr("data-gif");
 
@@ -72,9 +74,9 @@ function renderButtons() {
     })
       // After data comes back from the request
       .then(function(response) {
-        console.log(queryURL);
+        // console.log(queryURL);
 
-        console.log(response);
+        console.log("gif", response);
         // storing the data from the AJAX request in the results variable
         var results = response.data;
 
@@ -82,10 +84,10 @@ function renderButtons() {
         for (var i = 0; i < results.length; i++) {
 
           // Creating and storing a div tag
-          var gifDiv = $("<div>");
+          var gifDiv = $("<div class='gifs'>");
 
           // Creating a paragraph tag with the result item's rating
-          var p = $("<p>").text("Rating: " + results[i].rating);
+          var p = $("<p class='gifText'>").text("RATING: " + results[i].rating.toUpperCase());
 
           // Creating and storing an image tag
           var gifImage = $("<img>");

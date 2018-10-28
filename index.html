@@ -13,17 +13,19 @@
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
         <script src="assets/scripts/jquery.js" defer></script>
-        <script src="assets/scripts/gradient.js" defer></script>
         <script src="assets/scripts/app.js" defer></script>
 
         <title>GifStastic</title>
     </head>
     <body>
 
-        <div class="container">
+        <main>
+        <div class="container buttonContainer">
             <div class="col buttons">
                 <!-- Gifs buttons will get added here -->
-                <div class="row justify-content-md-center topicButtons"></div>
+                <div class="row topicButtons"></div>
+                <!--row justify-content-md-center-->
+                <!-- justify-content-md-center  -->
             </div>
         </div>
         <div class="container search">
@@ -33,9 +35,12 @@
             </div>
         </div>
 
-        <!-- Empty div to display gifs -->
-		<div id="gifs-appear-here"></div>
- 
+        <div class="container gifContainer">
+            <div class="col gifCol">
+                <div id="gifs-appear-here"></div>
+            </div>
+        </div>
+        </main>
  
         
 
