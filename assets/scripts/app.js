@@ -1,3 +1,6 @@
+// Begin jQuery
+$(document).ready(function() {
+
 // array of topics
 var topics = [
     "Parks and Rec",
@@ -29,7 +32,7 @@ function renderButtons() {
       // Adding a class
       a.addClass("gifButton");
       // Adding a data-attribute with a value of the gif topics at index i
-      a.attr("data-gif", topics[i]);
+      a.attr("data-newGifsData", topics[i]);
       // Providing the button's text with a value of the gif topics at index i
       a.text(topics[i]);
       // Adding the button to the HTML
@@ -62,10 +65,10 @@ function renderButtons() {
 
     console.log("CLICK");
     // Grabbing and storing the data-gif property value from the button
-    var newGif = $(this).attr("data-gif");
+    var newGifSearch = $(this).attr("data-newGifsData");
 
     // Constructing a queryURL using the gif name
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + newGif + "&api_key=uc3bkWuX7MACY5zfZUqyFLMCwZfCl5ZU&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + newGifSearch + "&api_key=uc3bkWuX7MACY5zfZUqyFLMCwZfCl5ZU&limit=10";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
@@ -92,7 +95,11 @@ function renderButtons() {
           // Creating and storing an image tag
           var gifImage = $("<img>");
           // Setting the src attribute of the image to a property pulled off the result item
-          gifImage.attr("src", results[i].images.fixed_height.url);
+          gifImage.attr("src", results[i].images.fixed_height_still.url);
+          gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+          gifImage.attr("data-animate", results[i].images.fixed_height.url)
+          gifImage.attr("data-state", "still")
+          gifImage.addClass("gif");
 
           // Appending the paragraph and image tag to the gifDiv
           gifDiv.append(p);
@@ -103,3 +110,20 @@ function renderButtons() {
         }
       });
   });
+
+  $("#gifs-appear-here").on("click", ".gif", function() {
+    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
+
+});
