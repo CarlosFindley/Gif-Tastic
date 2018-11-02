@@ -10,8 +10,13 @@ body {
     margin: 0 auto;
 }
 
-.buttonContainer, .gifContainer {
-    min-width: 70%;
+.buttonContainer, .search, .gifContainer {
+    max-width: 70%;
+}
+
+.buttonContainer, .search {
+    padding-left: 0;
+    padding-right: 0;
 }
     
 .gifContainer, .gifCol {
@@ -56,6 +61,7 @@ body {
 .submitButton {
     background-color: rgb(109, 99, 255);
     color: rgb(255,255,255);
+    font-weight: 600;
     border: none;
 }
 
@@ -67,5 +73,22 @@ img {
     margin: 0 auto;
 }
 
+@media screen and (max-width: 1000px) {
+    .buttonContainer, .submitButton, .searchBar {
+        font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .buttonContainer, .submitButton, .searchBar {
+        font-size: .7em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .buttonContainer, .submitButton, .searchBar {
+        font-size: .5em;
+    }
+}
 
 
